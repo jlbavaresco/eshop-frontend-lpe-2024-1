@@ -4,13 +4,15 @@ import Alerta from "../../comuns/Alerta";
 
 function Tabela() {
 
-    const { alerta, listaObjetos, remover } = useContext(CategoriaContext);
+    const { alerta, listaObjetos, remover, novoObjeto, editarObjeto } = useContext(CategoriaContext);
 
     return (
         <div style={{ padding: '20px' }}>
             <h1>Categorias</h1>
             <Alerta alerta={alerta} />
-            <button type="button" className="btn btn-primary">
+            <button type="button" className="btn btn-primary"
+                data-bs-toggle="modal" data-bs-target="#modalEdicao"
+                onClick={() => novoObjeto()}>
                 Novo <i className="bi bi-file-plus"></i>
             </button>
             {listaObjetos.length === 0 && <h1>Nenhum registro encontrado</h1>}
@@ -27,10 +29,13 @@ function Tabela() {
                         <tbody>
                             {
                                 listaObjetos.map(objeto => (
-                                    <tr>
+                                    <tr key={objeto.codigo}>
                                         <td align="center">
                                             <button className="btn btn-info"
-                                                title="Editar">
+                                                title="Editar"
+                                                data-bs-toggle="modal" 
+                                                data-bs-target="#modalEdicao"
+                                                onClick={() => editarObjeto(objeto.codigo)} >
                                                 <i className="bi bi-pencil-square"></i>
                                             </button>
                                             <button className="btn btn-danger"
