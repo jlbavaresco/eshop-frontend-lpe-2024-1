@@ -8,6 +8,7 @@ import {
 import Tabela from "./Tabela";
 import Carregando from "../../comuns/Carregando";
 import Form from "./Form";
+import WithAuth from "../../../seguranca/WithAuth";
 
 function Categoria() {
 
@@ -84,4 +85,5 @@ function Categoria() {
     )
 }
 
-export default Categoria;
+// import WithAuth from "../../../seguranca/WithAuth";
+export default WithAuth(Categoria);

@@ -9,6 +9,7 @@ import {
 import Tabela from "./Tabela";
 import Carregando from "../../comuns/Carregando";
 import Form from "./Form";
+import WithAuth from "../../../seguranca/WithAuth";
 
 function Produto() {
 
@@ -102,4 +103,4 @@ function Produto() {
     )
 }
 
-export default Produto;
+export default WithAuth(Produto);
